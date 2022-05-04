@@ -123,6 +123,7 @@
             </tbody>
         </table>
     </div>
+    <p id="sharelink"></p>
     <script type="text/javascript">
         //<![CDATA[
 
@@ -136,14 +137,96 @@
 
         //]]>
     </script>
+<script>
 
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return typeof sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+    return false;
+};
+    $( document ).ready(function() {
+    console.log( getUrlParameter('you') );
+ if (getUrlParameter('you') ){
+     console.log("eeyy")
+
+
+     const randGeneratorFrom = seed => {
+                const generator = new Math.seedrandom(seed)
+                return (min, max) => Math.floor(generator() * (max - min + 1) + min)
+            }
+
+            const rand = randGeneratorFrom(getUrlParameter('you')   )
+
+            function myFunction(min, max) {
+                var out1 = [];
+                for (let i = 0; i < 5; i++) {
+                    var num = rand(min, max);
+                    if (out1.includes(num)) {
+                        while (true) {
+                            var newNum = rand(min, max);
+                            if (out1.includes(newNum)) {} else {
+                                out1.push(newNum)
+                                break
+                            }
+                        }
+                    } else {
+                        out1.push(num)
+                    }
+                }
+                return out1
+
+            }
+            var col1 = myFunction(1, 10)
+            $('#s1').html(col1[0]);
+            $('#s2').html(col1[1]);
+            $('#s3').html(col1[2]);
+            $('#s4').html(col1[3]);
+            $('#s5').html(col1[4]);
+            var col1 = myFunction(11, 20)
+            $('#h1').html(col1[0]);
+            $('#h2').html(col1[1]);
+            $('#h3').html(col1[2]);
+            $('#h4').html(col1[3]);
+            $('#h5').html(col1[4]);
+            var col1 = myFunction(21, 30)
+            $('#r1').html(col1[0]);
+            $('#r2').html(col1[1]);
+            $('#r3').html(col1[2]);
+            $('#r4').html(col1[3]);
+            $('#r5').html(col1[4]);
+            var col1 = myFunction(31, 40)
+            $('#e1').html(col1[0]);
+            $('#e2').html(col1[1]);
+            $('#e3').html(col1[2]);
+            $('#e4').html(col1[3]);
+            $('#e5').html(col1[4]);
+            var col1 = myFunction(41, 50)
+            $('#k1').html(col1[0]);
+            $('#k2').html(col1[1]);
+            $('#k3').html(col1[2]);
+            $('#k4').html(col1[3]);
+            $('#k5').html(col1[4]);
+
+
+
+
+ }
+});
+</script>
     <script>
         $("#look").click(function () {
             var bla = $('#name').val();
             console.log(bla)
-
-
-
 
             const randGeneratorFrom = seed => {
                 const generator = new Math.seedrandom(seed)
@@ -205,8 +288,6 @@
 
 
         });
-
-
         console.log("hello")
     </script>
 
