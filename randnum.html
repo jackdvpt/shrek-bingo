@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <script src="seedrandom.min.js">
+        </script>
+    </head>
+   <script>
+const randGeneratorFrom = seed => {
+  const generator = new Math.seedrandom(seed)
+  return (min, max) => Math.floor(generator() * (max - min + 1) + min)
+}
+
+const rand = randGeneratorFrom("jackdvpt")
+function myFunction(min, max) {
+    var out1 = [];  
+for (let i = 0; i < 5; i++) {
+ var num = rand(min, max);
+ if (out1.includes(num)){
+     while(true){
+         var newNum = rand(min,max);
+         if(out1.includes(newNum)){
+         }else{
+             out1.push(newNum)
+             break
+         }
+     }
+ }else{
+     out1.push(num)
+ }
+}
+return out1
+
+}
+
+
+var col1 = myFunction(1,10)
+var col2 = myFunction(11,20)
+var col3 = myFunction(21,30)
+var col4 = myFunction(31,40)
+var col5 = myFunction(41,50)
+
+console.log(col1, col2, col3, col4, col5)
+
+   </script>
+</html>
