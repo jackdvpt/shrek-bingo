@@ -96,7 +96,7 @@
                     <th style="width: 55px;"></th>
                     <td id="s3"></td>
                     <td id="h3"></td>
-                    <td >FREE SPACE</td>
+                    <td id="fs" >FREE SPACE</td>
                     <td id="e3"></td>
                     <td id="k3"></td>
                     <th style="width: 55px;"></th>
@@ -131,6 +131,8 @@
         $(function () {
             $('td').click(function () {
                 $(this).toggleClass("red-cell");
+                
+                $('#sharelink').append(this.id+",")
             });
         });
 
@@ -221,7 +223,7 @@ var getUrlParameter = function getUrlParameter(sParam) {
             $('#'+selected[val]).addClass("red-cell")
             }
 
-            $('#sharelink').html("SHARE THIS LINK WITH YOUR FRIENDS YOU DROGGO https://jackdvpt.github.io/shrek-bingo/?you="+getUrlParameter('you')   );
+            $('#sharelink').html("SHARE THIS LINK WITH YOUR FRIENDS YOU DROGGO https://jackdvpt.github.io/shrek-bingo/?you="+getUrlParameter('you') +"red="  );
 
  }
 });
@@ -289,7 +291,7 @@ var getUrlParameter = function getUrlParameter(sParam) {
             $('#k5').html(col1[4]);
 
 
-            $('#sharelink').html("SHARE THIS LINK WITH YOUR FRIENDS YOU DROGGO https://jackdvpt.github.io/shrek-bingo/?you="+bla);
+            $('#sharelink').html("SHARE THIS LINK WITH YOUR FRIENDS YOU DROGGO https://jackdvpt.github.io/shrek-bingo/?you="+bla+"red=");
 
         });
         console.log("hello")
