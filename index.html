@@ -217,7 +217,9 @@ var getUrlParameter = function getUrlParameter(sParam) {
             $('#k4').html(col1[3]);
             $('#k5').html(col1[4]);
 
-
+            for (val in selected){
+            $('#'+selected[val]).addClass("red-cell")
+            }
 
             $('#sharelink').html("SHARE THIS LINK WITH YOUR FRIENDS YOU DROGGO https://jackdvpt.github.io/shrek-bingo/?you="+getUrlParameter('you')   );
 
