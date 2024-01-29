@@ -156,11 +156,10 @@ var getUrlParameter = function getUrlParameter(sParam) {
 };
     $( document ).ready(function() {
     console.log( getUrlParameter('you') );
-        console.log(getUrlParameter('red'));
  if (getUrlParameter('you') ){
      console.log("eeyy")
-
-
+     var selected = getUrlParameter('red').split(",");
+    console.log(selected);
      const randGeneratorFrom = seed => {
                 const generator = new Math.seedrandom(seed)
                 return (min, max) => Math.floor(generator() * (max - min + 1) + min)
